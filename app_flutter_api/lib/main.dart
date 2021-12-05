@@ -1,5 +1,5 @@
-import 'package:app_flutter_api/blocs/search-plate_block.dart';
-import 'package:app_flutter_api/ui/splash/splash_screen.dart';
+import 'package:app_flutter_api/blocs/vehicleBloc.dart';
+import 'package:app_flutter_api/ui/splash/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -26,9 +26,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider( 
+    return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => SearchPlateBloc())
+        ChangeNotifierProvider(create: (_) => VehicleBloc())
       ],
       child: MaterialApp(
         title: "FLUTTER API - About plate",
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case "splashScreen":
-              return MaterialPageRoute(builder: (_) => SplashScreen());
+              return MaterialPageRoute(builder: (_) => HomeScreen());
             default:
           }
         },
