@@ -2,7 +2,7 @@
 
 A API usada foi a api da https://deividfortuna.github.io/fipe/ para conseguir fazer a consulta pelos campos Marca, Modelo e Ano.
 
-Essas informações foram obtidas diretamente do site oficial da FIPE apenas fazendo leitura do código já exites.
+Essas informações foram obtidas diretamente do site oficial da FIPE apenas fazendo leitura do código já existente.
 
 A API disponibiliza os dados de busca no formato JSON. Onde o nosso aplicativo tratou esses resultados com um ```json.decode(response.body);```.
 
@@ -40,7 +40,7 @@ Future<String> pegarMarcas() async {
 }
 ```
 
-Depois de selecionar a Marca, logo foi colocado um DropdownButton com o resultado da API usando como abe o modelo.
+Depois de selecionar a Marca, logo foi colocado um DropdownButton com o resultado da API usando como base o modelo.
 
 ```
 Future<String> pegarModelos() async {
