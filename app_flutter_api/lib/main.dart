@@ -1,4 +1,4 @@
-import 'package:app_flutter_api/blocs/vehicleBloc.dart';
+import 'package:app_flutter_api/blocs/vehicle_bloc.dart';
 import 'package:app_flutter_api/ui/splash/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,10 +33,10 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: "FLUTTER API - About plate",
         debugShowCheckedModeBanner: false,
-        initialRoute: "splashScreen",
+        initialRoute: "homeScreen",
         onGenerateRoute: (settings) {
           switch (settings.name) {
-            case "splashScreen":
+            case "homeScreen":
               return MaterialPageRoute(builder: (_) => HomeScreen());
             default:
           }

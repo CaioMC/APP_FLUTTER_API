@@ -1,5 +1,5 @@
 
-class FipeResult {
+class FipeResultModel {
   
   String ?valor;
   String ?marca;
@@ -11,7 +11,7 @@ class FipeResult {
   int ?tipoVeiculo;
   String ?siglaCombustivel;
 
-  FipeResult(
+  FipeResultModel(
       {this.valor,
       this.marca,
       this.modelo,
@@ -23,7 +23,7 @@ class FipeResult {
       this.siglaCombustivel
       });
 
-  FipeResult.fromjson(Map<String, dynamic> json) {
+  FipeResultModel.fromjson(Map<String, dynamic> json) {
     this.valor = json['Valor'];
     this.marca = json['Marca'];
     this.modelo = json['Modelo'];

@@ -1,4 +1,4 @@
-import 'package:app_flutter_api/blocs/vehicleBloc.dart';
+import 'package:app_flutter_api/blocs/vehicle_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -40,25 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Consumer<VehicleBloc>(builder: (_, vehicleBloc, __) {
       return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColor,
-          title: Center(
-            child: Text(
-              "FIPE TABLE",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: GoogleFonts.bungee().fontFamily,
-                shadows: <Shadow>[
-                  Shadow(
-                    color: Colors.black,
-                    blurRadius: 3,
-                    offset: Offset(3, 1),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        appBar: _getAppBar(),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -235,13 +217,14 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 30,
               ),
-              CreateLabel('Marca', textBrand),
-              CreateLabel('Modelo', textModel),
-              CreateLabel('Ano', texteYearToModel),
-              CreateLabel('Combustível', textFuel),
-              CreateLabel('Código Fipe', textFipe),
-              CreateLabel('Mês Referência', textMonthRef),
-              CreateLabel('Valor', textValue)
+              // Resultado da tabela Fipe
+              createLabel('Marca', textBrand),
+              createLabel('Modelo', textModel),
+              createLabel('Ano', texteYearToModel),
+              createLabel('Combustível', textFuel),
+              createLabel('Código Fipe', textFipe),
+              createLabel('Mês Referência', textMonthRef),
+              createLabel('Valor', textValue)
             ],
           ),
         ),
@@ -279,6 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // Pega os modelos
   Future<String> getModels() async {
     var url = Uri.parse('');
     if (searchType == 'carro') {
@@ -298,6 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return "Sucess";
   }
 
+  // Pega os anos do modelo
   Future<String> getYears() async {
     var url = Uri.parse('');
     if (searchType == 'carro') {
@@ -340,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return "Sucess";
   }
 
-  CreateLabel(String label, String Resultado) {
+  createLabel(String label, String Resultado) {
     return Row(
       children: [
         Padding(
@@ -357,6 +342,28 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
         )
       ],
+    );
+  }
+
+  AppBar _getAppBar() {
+    return AppBar(
+      backgroundColor: Theme.of(context).primaryColor,
+      title: Center(
+        child: Text(
+          "FIPE TABLE",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: GoogleFonts.bungee().fontFamily,
+            shadows: <Shadow>[
+              Shadow(
+                color: Colors.black,
+                blurRadius: 3,
+                offset: Offset(3, 1),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
